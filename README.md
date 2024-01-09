@@ -10,25 +10,21 @@ Create a configuration file: /etc/hostapd/hostapd.conf
 --$sudo emacs /etc/hostapd/hostapd.conf
 The file contains the following configuration 
 
-'''
-interface=wlp1s0 (wlp1s0 is the name of the wireless interface of our laptop.)  
-
-driver=nl80211 (Specifies the wireless driver to be used by hostapd. The nl80211 driver is commonly used on Linux systems.)                                                           
-
-ssid=Wifi-SC (Is the name of our Wi-Fi network. This is what users will see when they scan for available networks.)
-
-hw_mode=g (Specifies the Wi-Fi mode, such as "g” for 2.4 GHz band or “a” for 5 GHz band.)
-
-channel=6 (Specifies the Wi-Fi channel to be used. We have to choose a channel that is not heavily used in our environment)
-macaddr_acl=0 (Controls MAC address filtering. “0” means no filtering, and “1” means allow only MAC addresses specified in the “accept_mac_file”.)
-auth_algs=1 (Specifies the authentication algorithms. 1 enables WPA (Wi-Fi Protected Access).)
-ignore_broadcast_ssid=0 (Controls whether the SSID should be hidden (1) or broadcasted (0).)
-wpa=2 (Specifies the version of WPA to use. 2 indicates WPA2.)
-wpa_passphrase=Socrative (Specifies the pre-shared key (password) for WPA-PSK authentication.)
-wpa_key_mgmt=WPA-PSK (Specifies the key management protocols used for authentication.)
-wpa_pairwise=TKIP (Specifies the pairwise (unicast) cipher suites for WPA.)
-rsn_pairwise=CCMP (Specifies the pairwise (unicast) cipher suites for RSN (Robust Security Network), used in WPA2.)
-ctrl_interface=/var/run/hostapd (Configurates a parameter that specifies the directory path for the control interface socket.)
+''' python
+interface=wlp1s0
+driver=nl80211                                                           
+ssid=Wifi-SC 
+hw_mode=g 
+channel=6 
+macaddr_acl=0 
+auth_algs=1 
+ignore_broadcast_ssid=0 
+wpa=2 
+wpa_passphrase=Socrative
+wpa_key_mgmt=WPA-PSK 
+wpa_pairwise=TKIP 
+rsn_pairwise=CCMP 
+ctrl_interface=/var/run/hostapd 
 '''
 
 Deactivate the NetworkManager
