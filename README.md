@@ -3,14 +3,17 @@
 This GitHub repository sets up a WiFi access point that implements "Time of Day" access control. It is based on a list of MAC addresses and predefined time intervals during which those MAC addresses are allowed to access services. Essentially, it allows only devices with specified MAC addresses to access the WiFi network during specific time periods.
 
 You will need to install hostapd aka SOFT AP and dnsmasq on your system to create the AP and give it an IP. You can install it in the terminal with this command
-
+```bash
 --$sudo apt-get install hostapd dnsmasq
+```
 
 Create a configuration file: /etc/hostapd/hostapd.conf
+```bash
 --$sudo emacs /etc/hostapd/hostapd.conf
-The file contains the following configuration 
+The file contains the following configuration
+``` 
 
-''' python
+````python
 interface=wlp1s0
 driver=nl80211                                                           
 ssid=Wifi-SC 
@@ -25,7 +28,7 @@ wpa_key_mgmt=WPA-PSK
 wpa_pairwise=TKIP 
 rsn_pairwise=CCMP 
 ctrl_interface=/var/run/hostapd 
-'''
+````
 
 Deactivate the NetworkManager
 --$sudo service NetworkManager stop
