@@ -63,7 +63,7 @@ Activate the AP
 --$sudo hostapd /etc/hostapd/hostapd.conf
 ```
 
-#“TIME OF DAY” BASED CONTROL
+# “TIME OF DAY” BASED CONTROL
 We have created a file named “mac_list.txt” which contains the MAC’S allowed and their time permission. (You can save in the same folder).
 
 Then we look with the following command if there is an user connected with us:
