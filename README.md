@@ -2,7 +2,6 @@
 
 This GitHub repository sets up a WiFi access point that implements "Time of Day" access control. It is based on a list of MAC addresses and predefined time intervals during which those MAC addresses are allowed to access services. Essentially, it allows only devices with specified MAC addresses to access the WiFi network during specific time periods.
 
-Use Python to run it.
 
 You will need to install hostapd aka SOFT AP and dnsmasq on your system to create the AP and give it an IP. You can install it in the terminal with this command
 
@@ -35,7 +34,7 @@ Assign an IP to our interface
 Activate our wireless interface
 --$sudo ip link set wlp1s0
 
-CONFIGURING DNSMASQ
+#CONFIGURING DNSMASQ
 In order to dynamically assign IP addresses to the different users that connect to our AP we use the same dnsmasq.
 To do this you need to add this in the configuration file /etc/dnsmasq.conf:
 interface = wlp1s0
@@ -50,7 +49,7 @@ systemctl status dnsmasq.service
 Activate the AP
 --$sudo hostapd /etc/hostapd/hostapd.conf
 
-“TIME OF DAY” BASED CONTROL
+#“TIME OF DAY” BASED CONTROL
 We have created a file named “mac_list.txt” which contains the MAC’S allowed and their time permission. (You can save in the same folder).
 
 Then we look with the following command if there is an user connected with us: 
@@ -65,9 +64,6 @@ We repeat the control process every 5 seconds, this value can be determined very
 
 
 
-
-
-
-
+Use file Python to run it.
 
 Video demo link: https://www.youtube.com/watch?v=ZqLch0Js73Q
