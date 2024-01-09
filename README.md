@@ -4,12 +4,12 @@ This GitHub repository sets up a WiFi access point that implements "Time of Day"
 
 You will need to install hostapd aka SOFT AP and dnsmasq on your system to create the AP and give it an IP. You can install it in the terminal with this command
 ```bash
---$sudo apt-get install hostapd dnsmasq
+$sudo apt-get install hostapd dnsmasq
 ```
 
 Create a configuration file: /etc/hostapd/hostapd.conf
 ```bash
---$sudo emacs /etc/hostapd/hostapd.conf
+$sudo emacs /etc/hostapd/hostapd.conf
 ```
 The file contains the following configuration
 
@@ -33,15 +33,15 @@ ctrl_interface=/var/run/hostapd
 
 Deactivate the NetworkManager
 ```bash
---$sudo service NetworkManager stop
+$sudo service NetworkManager stop
 ```
 Assign an IP to our interface
 ```bash
---$sudo ip address add 192.168.1.1/24 dev wlp1s0
+$sudo ip address add 192.168.1.1/24 dev wlp1s0
 ```
 Activate our wireless interface
 ```bash
---$sudo ip link set wlp1s0
+$sudo ip link set wlp1s0
 ```
 
 # CONFIGURING DNSMASQ
@@ -52,7 +52,7 @@ dhcp-range=192.168.1.2, 192.168.1.10, 12h
 And we reset the tool to be able to apply the changes made.
 
 ```bash
---$sudo service dnsmasq restart
+$sudo service dnsmasq restart
 ```
 
 We can check for possible errors by doing:
@@ -60,7 +60,7 @@ systemctl status dnsmasq.service
 
 Activate the AP
 ```bash
---$sudo hostapd /etc/hostapd/hostapd.conf
+$sudo hostapd /etc/hostapd/hostapd.conf
 ```
 
 # “TIME OF DAY” BASED CONTROL
@@ -68,16 +68,16 @@ We have created a file named “mac_list.txt” which contains the MAC’S allow
 
 Then we look with the following command if there is an user connected with us:
 ```bash
---$sudo arp -a
+$sudo arp -a
 ```
 We obtain their MAC and IP and we look in that file if he can connected or not
 
 In order to remove a user whose MAC address is not in the list or does not meet the time range we use these two commands:
 ```bash
---$sudo arp -d <IP>
+$sudo arp -d <IP>
 ```
 ```bash
---$sudo hostapd_cli -i wlp1s0 deauthenticate <MAC>
+$sudo hostapd_cli -i wlp1s0 deauthenticate <MAC>
 ```
 We repeat the control process every 5 seconds, this value can be determined very easily and conveniently
 
