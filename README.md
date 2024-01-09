@@ -83,7 +83,6 @@ We repeat the control process every 5 seconds, this value can be determined very
 
 
 
-
 Use file Python to run it.
 
 Video demo link: https://www.youtube.com/watch?v=ZqLch0Js73Q
