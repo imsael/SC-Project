@@ -1,5 +1,3 @@
 # SC-Project
 
-In this Project we created a Wi-FI AP (Access Point) using hostapd based on a "Time of day" and also using MAC addresses that are allowed.
-
-First of all
+This GitHub repository sets up a WiFi access point that implements "Time of Day" access control. It is based on a list of MAC addresses and predefined time intervals during which those MAC addresses are allowed to access services. Essentially, it allows only devices with specified MAC addresses to access the WiFi network during specific time periods.
